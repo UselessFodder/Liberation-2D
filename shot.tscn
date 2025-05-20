@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://daxls6gvj2pxy"]
+
+[ext_resource type="Script" path="res://shot.gd" id="1_tympc"]
+[ext_resource type="Texture2D" uid="uid://b2yaxsmn0p2up" path="res://sprites/kenney_tiny-battle/Tiles/tile_0191.png" id="2_ydnqa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dcpvs"]
+radius = 4.0
+height = 14.0
+
+[node name="shot" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_tympc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dcpvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ydnqa")

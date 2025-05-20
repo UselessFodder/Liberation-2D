@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq7r1tbdx3vvo"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_lycf2"]
+[ext_resource type="PackedScene" uid="uid://bqpyqervyu0mx" path="res://player/player.tscn" id="1_taelp"]
+[ext_resource type="Texture2D" uid="uid://b7j8c25drpl5r" path="res://sprites/kenney_tiny-battle/Tiles/tile_0000.png" id="2_ff8oo"]
+[ext_resource type="Texture2D" uid="uid://bl4pqt37onx0v" path="res://sprites/kenney_tiny-battle/Tiles/tile_0001.png" id="3_id4xt"]
+[ext_resource type="Texture2D" uid="uid://cf2dk3b4x0dk4" path="res://sprites/kenney_tiny-battle/Tiles/tile_0002.png" id="4_2lquc"]
+[ext_resource type="PackedScene" uid="uid://b25moaxh2lxal" path="res://map.tscn" id="5_btbvy"]
+[ext_resource type="PackedScene" uid="uid://tut8va4lda8n" path="res://actors/enemy.tscn" id="6_m1dnd"]
+
+[sub_resource type="Gradient" id="Gradient_g6213"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gixa3"]
+gradient = SubResource("Gradient_g6213")
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_lycf2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+rotation = 0.785398
+scale = Vector2(100, 100)
+texture = SubResource("GradientTexture2D_gixa3")
+
+[node name="Background" type="Node2D" parent="."]
+visible = false
+rotation = 0.785398
+scale = Vector2(100, 100)
+
+[node name="bgtile" type="Node2D" parent="Background"]
+rotation = -0.785398
+scale = Vector2(0.01, 0.01)
+
+[node name="Tile0000" type="Sprite2D" parent="Background/bgtile"]
+position = Vector2(-80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="Tile0001" type="Sprite2D" parent="Background/bgtile"]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id4xt")
+
+[node name="Tile0002" type="Sprite2D" parent="Background/bgtile"]
+position = Vector2(-80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("4_2lquc")
+
+[node name="Tile0003" type="Sprite2D" parent="Background/bgtile"]
+position = Vector2(80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="bgtile2" type="Node2D" parent="Background"]
+position = Vector2(-2.26274, 2.26274)
+rotation = -0.785398
+scale = Vector2(0.01, 0.01)
+
+[node name="Tile0000" type="Sprite2D" parent="Background/bgtile2"]
+position = Vector2(-80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="Tile0001" type="Sprite2D" parent="Background/bgtile2"]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id4xt")
+
+[node name="Tile0002" type="Sprite2D" parent="Background/bgtile2"]
+position = Vector2(-80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("4_2lquc")
+
+[node name="Tile0003" type="Sprite2D" parent="Background/bgtile2"]
+position = Vector2(80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="bgtile3" type="Node2D" parent="Background"]
+position = Vector2(2.26274, -2.26274)
+rotation = -0.785398
+scale = Vector2(0.01, 0.01)
+
+[node name="Tile0000" type="Sprite2D" parent="Background/bgtile3"]
+position = Vector2(-80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="Tile0001" type="Sprite2D" parent="Background/bgtile3"]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id4xt")
+
+[node name="Tile0002" type="Sprite2D" parent="Background/bgtile3"]
+position = Vector2(-80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("4_2lquc")
+
+[node name="Tile0003" type="Sprite2D" parent="Background/bgtile3"]
+position = Vector2(80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="bgtile4" type="Node2D" parent="Background"]
+position = Vector2(2.26274, 2.26274)
+rotation = -0.785398
+scale = Vector2(0.01, 0.01)
+
+[node name="Tile0000" type="Sprite2D" parent="Background/bgtile4"]
+position = Vector2(-80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="Tile0001" type="Sprite2D" parent="Background/bgtile4"]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id4xt")
+
+[node name="Tile0002" type="Sprite2D" parent="Background/bgtile4"]
+position = Vector2(-80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("4_2lquc")
+
+[node name="Tile0003" type="Sprite2D" parent="Background/bgtile4"]
+position = Vector2(80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="bgtile5" type="Node2D" parent="Background"]
+position = Vector2(-2.26274, -2.26274)
+rotation = -0.785398
+scale = Vector2(0.01, 0.01)
+
+[node name="Tile0000" type="Sprite2D" parent="Background/bgtile5"]
+position = Vector2(-80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="Tile0001" type="Sprite2D" parent="Background/bgtile5"]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id4xt")
+
+[node name="Tile0002" type="Sprite2D" parent="Background/bgtile5"]
+position = Vector2(-80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("4_2lquc")
+
+[node name="Tile0003" type="Sprite2D" parent="Background/bgtile5"]
+position = Vector2(80, -80)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ff8oo")
+
+[node name="map" parent="." instance=ExtResource("5_btbvy")]
+position = Vector2(199, 65)
+
+[node name="player" parent="." instance=ExtResource("1_taelp")]
+position = Vector2(-2, 1)
+
+[node name="enemy" parent="." instance=ExtResource("6_m1dnd")]
+position = Vector2(132, -56)
+
+[node name="enemy2" parent="." instance=ExtResource("6_m1dnd")]
+position = Vector2(173, -46)
+
+[node name="enemy3" parent="." instance=ExtResource("6_m1dnd")]
+position = Vector2(88, 99)

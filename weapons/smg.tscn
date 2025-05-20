@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccuewq6x28afk"]
+
+[ext_resource type="PackedScene" uid="uid://cdk1mmstxgbfy" path="res://weapons/weapon.tscn" id="1_bcl3x"]
+
+[node name="weapon" instance=ExtResource("1_bcl3x")]
+display_name = "SMG"
+damage = 10
+automatic = true
+shot_cycle = 3

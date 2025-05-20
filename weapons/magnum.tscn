@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jtrk8y3l2e50"]
+
+[ext_resource type="PackedScene" uid="uid://cdk1mmstxgbfy" path="res://weapons/weapon.tscn" id="1_xu8ys"]
+
+[node name="weapon" instance=ExtResource("1_xu8ys")]
+display_name = "Magnum"
+damage = 50
+shot_cycle = 30
