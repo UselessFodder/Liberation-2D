@@ -5,4 +5,5 @@
 [node name="weapon" instance=ExtResource("1_xu8ys")]
 display_name = "Magnum"
 damage = 50
+ammo_count = 7
 shot_cycle = 30

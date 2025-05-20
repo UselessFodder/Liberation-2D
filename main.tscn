@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq7r1tbdx3vvo"]
+[gd_scene load_steps=11 format=3 uid="uid://bq7r1tbdx3vvo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_lycf2"]
 [ext_resource type="PackedScene" uid="uid://ujg0kpfmviyy" path="res://player.tscn" id="1_taelp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cf2dk3b4x0dk4" path="res://sprites/kenney_tiny-battle/Tiles/tile_0002.png" id="4_2lquc"]
 [ext_resource type="PackedScene" uid="uid://b25moaxh2lxal" path="res://map.tscn" id="5_btbvy"]
 [ext_resource type="PackedScene" uid="uid://tut8va4lda8n" path="res://actors/enemy.tscn" id="6_m1dnd"]
+[ext_resource type="PackedScene" uid="uid://cfxjqgl8kdwjd" path="res://UI/mainUI.tscn" id="8_f67nx"]
 
 [sub_resource type="Gradient" id="Gradient_g6213"]
 
@@ -165,3 +166,5 @@ position = Vector2(173, -46)
 
 [node name="enemy3" parent="." instance=ExtResource("6_m1dnd")]
 position = Vector2(88, 99)
+
+[node name="mainUI" parent="." instance=ExtResource("8_f67nx")]

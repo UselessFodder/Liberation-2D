@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jxklcjon4yxl" path="res://sprites/kenney_tiny-battle/Tiles/tile_0124.png" id="2_qan25"]
 [ext_resource type="Texture2D" uid="uid://c3na6lj7hd2l8" path="res://sprites/crosshair.png" id="4_qkgb4"]
 [ext_resource type="Script" path="res://primaryweapon.gd" id="5_nep5k"]
-[ext_resource type="PackedScene" uid="uid://dhxmb543pk5yc" path="res://weapons/fullauto.tscn" id="6_pkft7"]
+[ext_resource type="PackedScene" uid="uid://jtrk8y3l2e50" path="res://weapons/magnum.tscn" id="6_5d51g"]
 [ext_resource type="PackedScene" uid="uid://ccuewq6x28afk" path="res://weapons/smg.tscn" id="7_cyktt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eci03"]
@@ -1449,7 +1449,7 @@ texture = ExtResource("4_qkgb4")
 
 [node name="primaryweapon" type="Node2D" parent="."]
 script = ExtResource("5_nep5k")
-selected_weapon_scene = ExtResource("6_pkft7")
+selected_weapon_scene = ExtResource("6_5d51g")
 
 [node name="secondaryweapon" type="Node2D" parent="."]
 script = ExtResource("5_nep5k")
@@ -1457,9 +1457,9 @@ selected_weapon_scene = ExtResource("7_cyktt")
 
 [node name="overheadlabel" type="Label" parent="."]
 offset_left = -20.0
-offset_top = -21.0
+offset_top = 5.0
 offset_right = 20.0
-offset_bottom = -8.0
+offset_bottom = 21.0
 text = "Test"
 label_settings = SubResource("LabelSettings_jeomg")
 horizontal_alignment = 1

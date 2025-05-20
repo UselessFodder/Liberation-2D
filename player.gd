@@ -142,6 +142,10 @@ func _input(event):
 		elif event.is_action_pressed("secondary_weapon"):
 			print("secondary weapon key pressed")
 			change_weapon($secondaryweapon)
+			
+		if event.is_action_pressed("reload"):
+			print("reloading")
+			current_weapon.reload()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
