@@ -7,14 +7,19 @@ class_name weapon
 @export var ammo_count = 30
 @export var automatic = false
 @export var shot_cycle = 5
+@export var reload_time = 1
+
+enum states {IDLE,SHOOT,RELOAD}
+var weapon_state = states.IDLE
 
 var shot = load("shot.gd")
 var shot_timer = 0
 var is_firing = false
 var current_ammo_count = ammo_count
+var reload_wait = 0
 
 func shoot(shot_start, shot_pos):
-	if current_ammo_count > 0:
+	if current_ammo_count > 0 and weapon_state == states.IDLE:
 		var shot_scene = preload("res://shot.tscn")
 	#	var new_shot = shot.new()
 		var new_shot = shot_scene.instantiate()
@@ -30,7 +35,22 @@ func shoot(shot_start, shot_pos):
 		current_ammo_count-=1
 
 func reload():
-	current_ammo_count = ammo_count
+#	if weapon_state == states.IDLE:
+#		weapon_state = states.RELOAD
+#		reload_wait = reload_time
+#	elif weapon_state == states.RELOAD and reload_wait == 0:
+#		current_ammo_count = ammo_count
+#		weapon_state = states.IDLE
+#	elif reload_wait > 0:
+#		reload_wait -=1
+	
+	if weapon_state == states.IDLE:
+		weapon_state = states.RELOAD
+		get_parent().get_parent().display_text("RELOADING")
+		await get_tree().create_timer(reload_time).timeout
+		current_ammo_count = ammo_count
+		weapon_state = states.IDLE
+		get_parent().get_parent().display_text_temporary("COMPLETE",2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

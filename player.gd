@@ -93,10 +93,16 @@ func change_weapon(new_weapon_slot):
 	shot_cycle = current_weapon.shot_cycle
 	
 	#display new weapon
-	display_text(current_weapon.display_name)
+	display_text_temporary(current_weapon.display_name, 2)
 
 func display_text(new_text):
 	$overheadlabel.text = new_text
+	
+func display_text_temporary(new_text,timer):
+	$overheadlabel.text = new_text
+	await get_tree().create_timer(2).timeout
+	$overheadlabel.text = ""
+
 func change_heath(change_amount):
 	health = health + change_amount
 	queue_redraw()
@@ -164,3 +170,6 @@ func _process(delta):
 	
 	#handle cursor position
 	#cursor_to_mouse()
+
+func get_label():
+	return $overheadlabel
