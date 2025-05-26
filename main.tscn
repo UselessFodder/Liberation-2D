@@ -159,12 +159,12 @@ position = Vector2(199, 65)
 position = Vector2(-2, 1)
 
 [node name="enemy" parent="." instance=ExtResource("6_m1dnd")]
-position = Vector2(132, -56)
+position = Vector2(40, -22)
 
 [node name="enemy2" parent="." instance=ExtResource("6_m1dnd")]
-position = Vector2(173, -46)
+position = Vector2(-58, -28)
 
 [node name="enemy3" parent="." instance=ExtResource("6_m1dnd")]
-position = Vector2(88, 99)
+position = Vector2(17, 57)
 
 [node name="mainUI" parent="." instance=ExtResource("8_f67nx")]

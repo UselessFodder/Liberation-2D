@@ -21,11 +21,8 @@ var reload_wait = 0
 func shoot(shot_start, shot_pos):
 	if current_ammo_count > 0 and weapon_state == states.IDLE:
 		var shot_scene = preload("res://shot.tscn")
-	#	var new_shot = shot.new()
 		var new_shot = shot_scene.instantiate()
-	#	$".".get_parent().add_child(new_shot)
 		get_tree().current_scene.add_child(new_shot)
-	#	new_shot.draw_shot(shot_start,shot_pos)
 		new_shot.start = shot_start
 		new_shot.end = shot_pos
 		new_shot.damage = damage
@@ -34,16 +31,7 @@ func shoot(shot_start, shot_pos):
 		#remove one round of ammo
 		current_ammo_count-=1
 
-func reload():
-#	if weapon_state == states.IDLE:
-#		weapon_state = states.RELOAD
-#		reload_wait = reload_time
-#	elif weapon_state == states.RELOAD and reload_wait == 0:
-#		current_ammo_count = ammo_count
-#		weapon_state = states.IDLE
-#	elif reload_wait > 0:
-#		reload_wait -=1
-	
+func reload():	
 	if weapon_state == states.IDLE:
 		weapon_state = states.RELOAD
 		get_parent().get_parent().display_text("RELOADING")

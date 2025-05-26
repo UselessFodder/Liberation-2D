@@ -1,8 +1,9 @@
-[gd_scene load_steps=205 format=3 uid="uid://tut8va4lda8n"]
+[gd_scene load_steps=206 format=3 uid="uid://tut8va4lda8n"]
 
 [ext_resource type="Script" path="res://actors/enemy.gd" id="1_45oci"]
 [ext_resource type="Texture2D" uid="uid://tr0h0cdsg1nv" path="res://sprites/kenney_tiny-battle/Tilemap/tilemap.png" id="1_ciqtk"]
 [ext_resource type="Texture2D" uid="uid://jxklcjon4yxl" path="res://sprites/kenney_tiny-battle/Tiles/tile_0124.png" id="2_qhdqf"]
+[ext_resource type="PackedScene" uid="uid://bxr2i4wrnh288" path="res://actors/AIComponent.tscn" id="4_om118"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_laq2u"]
 
@@ -1433,3 +1434,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wkb0j")
 animation = &"enemy"
+
+[node name="AIComponent" parent="." node_paths=PackedStringArray("Actor_Node") instance=ExtResource("4_om118")]
+Actor_Node = NodePath("..")

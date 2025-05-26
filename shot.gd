@@ -48,8 +48,6 @@ func check_impact():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timed_destroy()
-#	shoot_projectile()
-	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,8 +55,6 @@ func _process(delta):
 	position += dir * speed * delta
 	
 	#check if shot has reached end and delete if so
-#	if position.distance_to(end) < 5:
-#		queue_free()
 	var endpoint = end - position
 	check_impact()
 	if endpoint.dot(dir) <= 0:

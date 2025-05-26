@@ -74,18 +74,6 @@ func shoot():
 
 	#get current weapon and fire
 	current_weapon.shoot(shot_start,shot_pos)
-	
-	##	print("Mouse Click/Unclick at: ", event.position)
-	#	var shot_scene = preload("res://shot.tscn")
-	##	var new_shot = shot.new()
-	#	var new_shot = shot_scene.instantiate()
-	##	$".".get_parent().add_child(new_shot)
-	#	get_tree().current_scene.add_child(new_shot)
-	##	new_shot.draw_shot(shot_start,shot_pos)
-	#	new_shot.start = shot_start
-	#	new_shot.end = shot_pos
-	#	new_shot.damage = damage
-	#	new_shot.shoot_projectile()
 
 func change_weapon(new_weapon_slot):
 	current_weapon = new_weapon_slot.selected_weapon
@@ -137,9 +125,6 @@ func _input(event):
 		
 	elif event is InputEventMouseMotion:
 		$cursor.global_position =  get_global_mouse_position()
-		#print("Mouse Motion at: ", event.position)
-		#print("Cursor is at: ", $cursor.position)
-		#$cursor.position = get_viewport().get_mouse_position()
 		
 	if event is InputEventKey:
 		if event.is_action_pressed("primary_weapon"):
@@ -167,9 +152,6 @@ func _process(delta):
 		shot_timer += shot_cycle
 	if shot_timer > 0:
 		shot_timer -= 1
-	
-	#handle cursor position
-	#cursor_to_mouse()
 
 func get_label():
 	return $overheadlabel

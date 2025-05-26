@@ -2,7 +2,7 @@ extends Node2D
 class_name enemy
 
 @export var max_health = 100
-@export var speed = 300
+@export var speed = 30
 @export var health_size = 20
 
 var health = max_health

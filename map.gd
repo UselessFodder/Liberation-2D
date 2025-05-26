@@ -18,8 +18,6 @@ func _ready():
 		background[i].resize(grid_size)
 		for j in grid_size:
 			background[i][j] = tiles.pick_random()
-		
-	#print(background[0][0])
 
 func _draw():
 	var current_X = start_loc
