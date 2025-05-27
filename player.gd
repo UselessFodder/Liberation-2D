@@ -1,4 +1,5 @@
 extends Node2D
+class_name Player
 
 @export var health = 100
 @export var speed = 200
@@ -97,6 +98,8 @@ func change_heath(change_amount):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("players")
+	
 	#set current weapon
 	selected_weapon_slot = $primaryweapon
 	change_weapon(selected_weapon_slot)
