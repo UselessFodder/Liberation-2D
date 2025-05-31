@@ -12,6 +12,11 @@ var current_target
 enum states {IDLE,WAITING,ENGAGING,SHOOTING,RELOADING,MOVING}
 var current_state = states.IDLE
 
+var velocity = Vector2.ZERO
+var force = Vector2.ZERO
+
+@onready var debug_label = $DebugLabel
+
 func move_to_loc(new_loc):
 	if current_pos.distance_to(goal_pos) < 2:
 		Actor_Node.position.x = goal_pos.x
@@ -92,8 +97,8 @@ func start_reload():
 		else:
 			print("enemy is now outside range at", dist, ". Entering MOVE state")
 			goal_pos = current_target.global_position
-			current_state = states.MOVING
 			current_target = null
+			current_state = states.MOVING
 	else:
 		print("Entering ENGAGING state")
 		current_state = states.ENGAGING
@@ -120,7 +125,8 @@ func shoot():
 	
 	#get aiming error
 	var shot_error = Vector2(randfn(0,shot_deviation), randfn(0,shot_deviation))
-	print("Shot accuracy is ", accuracy, "leading to an offset of ", shot_error)
+	#DEBUG
+	#print("Shot accuracy is ", accuracy, "leading to an offset of ", shot_error)
 	
 	#get target pos and apply error
 	var shot_pos = current_target.global_position + shot_error
@@ -174,16 +180,29 @@ func _process(delta):
 		get_random_loc()
 		current_state = states.MOVING
 	
-	if current_state == states.MOVING and current_pos != goal_pos:
-		#print("current: ", current_pos, " goal: ", goal_pos)
-		current_state = states.MOVING
-		var velocity = move_to_loc(goal_pos)
-		if velocity == Vector2.ZERO:
-			start_wait()
+	#if current_state == states.MOVING and current_pos != goal_pos:
+	if current_state == states.MOVING:
+		if current_pos == goal_pos:
+			current_state = states.IDLE
 		else:
-			Actor_Node.position = (Actor_Node.position + velocity * delta).snapped(Vector2.ONE)
-#			Actor_Node.position += velocity * delta
+			#print("current: ", current_pos, " goal: ", goal_pos)
+			current_state = states.MOVING
+			velocity = move_to_loc(goal_pos)
+			if velocity == Vector2.ZERO:
+				start_wait()
+			#else:
+				#Actor_Node.position = (Actor_Node.position + velocity * delta).snapped(Vector2.ONE)
+#				
+	Actor_Node.position += (velocity + force) * delta
+	
+	if force > Vector2.ZERO:
+		#DEBUG
+		print(force)
+	
+	force.x = move_toward(force.x,0,5)
+	force.y = move_toward(force.y,0,5)
 
+	debug_label.text = str(states.find_key(current_state), " ", current_pos.distance_to(goal_pos))
 #func _draw():
 #	#ChatGPT generated code
 #	if current_state in [states.ENGAGING, states.SHOOTING] and current_target:

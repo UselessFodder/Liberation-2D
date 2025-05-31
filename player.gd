@@ -12,6 +12,7 @@ var health_bg_color = Color(1,1,1)
 
 var shot = load("shot.gd")
 var velocity = Vector2.ZERO
+var force = Vector2.ZERO
 
 #weapon vars
 var selected_weapon_slot
@@ -89,12 +90,15 @@ func display_text(new_text):
 	
 func display_text_temporary(new_text,timer):
 	$overheadlabel.text = new_text
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(timer).timeout
 	$overheadlabel.text = ""
 
 func change_heath(change_amount):
 	health = health + change_amount
 	queue_redraw()
+
+func knockback(dir, power):
+	force = dir.normalized() * power
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -107,10 +111,12 @@ func _ready():
 func _draw():
 	var bar_size: float = float(20) * (float(health)/float(max_health))
 	health_bar.size = Vector2(bar_size, 5)
-	print((float(health)/float(max_health)))
+	
+	#DEBUG
+	#print((float(health)/float(max_health)))
 	if bar_size > 0:
-		draw_rect(health_bg, health_bg_color, true, 5)
-		draw_rect(health_bar, health_color, true, 5)
+		draw_rect(health_bg, health_bg_color, true)
+		draw_rect(health_bar, health_color, true)
 
 
 func _input(event):
@@ -145,7 +151,10 @@ func _input(event):
 func _process(delta):
 	#handle movement
 	velocity = movement()
-	position += velocity * delta
+	position += (velocity + force) * delta
+	
+	force.x = move_toward(force.x,0,5)
+	force.y = move_toward(force.y,0,5)
 	
 	#handle zoom
 	zoom()

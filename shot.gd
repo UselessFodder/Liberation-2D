@@ -42,10 +42,12 @@ func check_impact():
 		var hit_object = hit_object_collider.get_parent()
 		if hit_object is Enemy:
 			print("Hit an Enemy!")
+			hit_object.knockback(dir,damage)
 			hit_object.change_heath(damage * -1)
 			queue_free()
 		elif hit_object is Player:
-			print("Hit an Enemy!")
+			print("Hit a Player!")
+			hit_object.knockback(dir,damage)
 			hit_object.change_heath(damage * -1)
 			queue_free()
 
